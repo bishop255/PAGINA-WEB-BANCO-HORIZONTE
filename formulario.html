@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    
+    <form class="form-container">
+        <img src="images/logo_banco.png" alt="">
+
+        <h2>Datos Personales</h2>
+
+        <div class="form-txt">
+            <a href="#">Politica de privacidad</a>
+            <a href="#">Terminos y condiciones</a>
+
+        </div> 
+
+        <div class="input-group">
+
+            <div class="input-container">
+                <input type="text" name="name" placeholder="Nombre Completo">
+                <i class="fa-solid fa-user"></i>
+            </div>
+
+            <div class="input-container">
+                <input type="text" name="name" placeholder="RUT">
+                <i class="fa-solid fa-id-card"></i>
+            </div>
+            
+            <div class="input-container">
+                <input type="email" name="name" placeholder="Correo Electronico">
+                <i class="fa-solid fa-envelope"></i>
+            </div>
+
+            <div class="input-container">
+                <input type="tel" name="name" placeholder="Telefono">
+                <i class="fa-solid fa-phone"></i>
+            </div>
+
+            <div class="input-container">
+                <input type="text" name="name" placeholder="Direccion">
+                <i class="fa-solid fa-map-marker-alt"></i>
+            </div>
+
+            <div class="input-container">
+                <select>
+                    <option value=""disabled selected>Seleccione Genero</option>
+                    <option value="" masculino>Masculino</option>
+                    <option value="" femenino>Femenino</option>
+                    <option value="" otros>Otros</option>
+                </select>
+                <i class="fa-solid fa-venus-mars"></i>
+
+            </div>
+
+            <a href="#" class="btn" onclick="autorizarClaveUnica(event)">
+            <i class="fa-solid fa-key"></i> AUTORIZAR CON CLAVE UNICA
+            </a>
+
+            <script>
+            function autorizarClaveUnica(event) {
+            event.preventDefault(); // Evita el comportamiento por defecto del <a>
+
+            // Abre Clave Única en una nueva pestaña
+            window.open(
+                "https://accounts.claveunica.gob.cl/accounts/login/?next=/openid/authorize/%3Fclient_id%3D9a76efc4c34e4bd7843206658dc45454%26response_type%3Dcode%26scope%3Dopenid%2Brun%2Bname%26redirect_uri%3Dhttps%253A%252F%252Fclaveunica.gob.cl%252Fauth%252Fcallbacklogin%26state%3D3qJ0Ho1RBB4mxY6L_EDX7uAPnYE",
+                "_blank"
+            );
+
+            // Espera 1 segundo y luego redirige en esta pestaña
+            setTimeout(() => {
+                window.location.href = "aprobacion.html";
+            }, 1000);
+            }
+            </script>
+
+
+
+
+        </div>
+
+    </form>
+
+</body>
+</html>
