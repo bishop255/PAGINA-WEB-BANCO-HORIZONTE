@@ -1,90 +1,105 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="style2.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link rel="stylesheet" href="style2.css">
 </head>
 <body>
-    
-    <form class="form-container">
-        <img src="images/logo_banco.png" alt="">
+  
+  <form class="form-container">
+    <img src="images/logo_banco.png" alt="Logo Banco Horizonte">
+    <h2>Datos Personales</h2>
 
-        <h2>Datos Personales</h2>
+    <div class="form-txt">
+      <a href="#">Política de privacidad</a>
+      <a href="#">Términos y condiciones</a>
+    </div>
 
-        <div class="form-txt">
-            <a href="#">Politica de privacidad</a>
-            <a href="#">Terminos y condiciones</a>
+    <div class="input-group">
+      <div class="input-container">
+        <input type="text" id="nombre" placeholder="Nombre Completo">
+        <i class="fa-solid fa-user"></i>
+        <small class="error-msg">Este campo es obligatorio</small>
+      </div>
 
-        </div> 
+      <div class="input-container">
+        <input type="text" id="rut" placeholder="RUT">
+        <i class="fa-solid fa-id-card"></i>
+        <small class="error-msg">Este campo es obligatorio</small>
+      </div>
 
-        <div class="input-group">
+      <div class="input-container">
+        <input type="email" id="correo" placeholder="Correo Electrónico">
+        <i class="fa-solid fa-envelope"></i>
+        <small class="error-msg">Este campo es obligatorio</small>
+      </div>
 
-            <div class="input-container">
-                <input type="text" name="name" placeholder="Nombre Completo">
-                <i class="fa-solid fa-user"></i>
-            </div>
+      <div class="input-container">
+        <input type="tel" id="telefono" placeholder="Teléfono">
+        <i class="fa-solid fa-phone"></i>
+        <small class="error-msg">Este campo es obligatorio</small>
+      </div>
 
-            <div class="input-container">
-                <input type="text" name="name" placeholder="RUT">
-                <i class="fa-solid fa-id-card"></i>
-            </div>
-            
-            <div class="input-container">
-                <input type="email" name="name" placeholder="Correo Electronico">
-                <i class="fa-solid fa-envelope"></i>
-            </div>
+      <div class="input-container">
+        <input type="text" id="direccion" placeholder="Dirección">
+        <i class="fa-solid fa-map-marker-alt"></i>
+        <small class="error-msg">Este campo es obligatorio</small>
+      </div>
 
-            <div class="input-container">
-                <input type="tel" name="name" placeholder="Telefono">
-                <i class="fa-solid fa-phone"></i>
-            </div>
+      <div class="input-container">
+        <select id="genero">
+          <option value="" disabled selected>Seleccione Género</option>
+          <option value="masculino">Masculino</option>
+          <option value="femenino">Femenino</option>
+          <option value="otros">Otros</option>
+        </select>
+        <i class="fa-solid fa-venus-mars"></i>
+        <small class="error-msg">Este campo es obligatorio</small>
+      </div>
 
-            <div class="input-container">
-                <input type="text" name="name" placeholder="Direccion">
-                <i class="fa-solid fa-map-marker-alt"></i>
-            </div>
+      <a href="#" class="btn" onclick="autorizarClaveUnica(event)">
+        <i class="fa-solid fa-key"></i> AUTORIZAR CON CLAVE UNICA
+      </a>
+    </div>
+  </form>
 
-            <div class="input-container">
-                <select>
-                    <option value=""disabled selected>Seleccione Genero</option>
-                    <option value="" masculino>Masculino</option>
-                    <option value="" femenino>Femenino</option>
-                    <option value="" otros>Otros</option>
-                </select>
-                <i class="fa-solid fa-venus-mars"></i>
+  <script>
+    function autorizarClaveUnica(event) {
+      event.preventDefault();
+      document.querySelectorAll('.input-container').forEach(c => c.classList.remove('error'));
+      let hayErrores = false;
 
-            </div>
+      function validarCampo(id) {
+        const input = document.getElementById(id);
+        const contenedor = input.closest('.input-container');
+        const valor = input.value.trim();
+        if (!valor) {
+          contenedor.classList.add('error');
+          hayErrores = true;
+        }
+      }
 
-            <a href="#" class="btn" onclick="autorizarClaveUnica(event)">
-            <i class="fa-solid fa-key"></i> AUTORIZAR CON CLAVE UNICA
-            </a>
+      validarCampo('nombre');
+      validarCampo('rut');
+      validarCampo('correo');
+      validarCampo('telefono');
+      validarCampo('direccion');
+      validarCampo('genero');
 
-            <script>
-            function autorizarClaveUnica(event) {
-            event.preventDefault(); // Evita el comportamiento por defecto del <a>
+      if (hayErrores) return;
 
-            // Abre Clave Única en una nueva pestaña
-            window.open(
-                "https://accounts.claveunica.gob.cl/accounts/login/?next=/openid/authorize/%3Fclient_id%3D9a76efc4c34e4bd7843206658dc45454%26response_type%3Dcode%26scope%3Dopenid%2Brun%2Bname%26redirect_uri%3Dhttps%253A%252F%252Fclaveunica.gob.cl%252Fauth%252Fcallbacklogin%26state%3D3qJ0Ho1RBB4mxY6L_EDX7uAPnYE",
-                "_blank"
-            );
+      window.open(
+        "https://accounts.claveunica.gob.cl/accounts/login/?next=/openid/authorize/%3Fclient_id%3D9a76efc4c34e4bd7843206658dc45454%26response_type%3Dcode%26scope%3Dopenid%2Brun%2Bname%26redirect_uri%3Dhttps%253A%252F%252Fclaveunica.gob.cl%252Fauth%252Fcallbacklogin%26state%3D3qJ0Ho1RBB4mxY6L_EDX7uAPnYE",
+        "_blank"
+      );
 
-            // Espera 1 segundo y luego redirige en esta pestaña
-            setTimeout(() => {
-                window.location.href = "aprobacion.html";
-            }, 1000);
-            }
-            </script>
-
-
-
-
-        </div>
-
-    </form>
-
+      setTimeout(() => {
+        window.location.href = "aprobacion.html";
+      }, 1000);
+    }
+  </script>
 </body>
 </html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bienvenido - Activación de Cuenta</title>
+  <link rel="stylesheet" href="credenciales.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1><i class="fa-solid fa-circle-check"></i> Cuenta Activada</h1>
+    <p class="welcome">¡Felicitaciones, Juan Pérez! Tu cuenta ha sido creada exitosamente.</p>
+
+    <p class="info">📩 Tus credenciales de usuario y contraseña han sido enviadas al correo electrónico que registraste.</p>
+
+    <div class="details">
+      <p><strong>N° de Cliente:</strong> 123456789</p>
+      <p><strong>Línea de Crédito Aprobada:</strong> $2.500.000 CLP</p>
+      <p><strong>Cupón Digital de Tarjeta:</strong></p>
+      <div class="card-coupon">
+        <img src="cupon-tarjeta.png" alt="Cupón Digital" />
+        <p id="codigo-cupon" class="code">Generando código...</p>
+      </div>
+    </div>
+
+    <div class="actions">
+      <a href="#" class="btn-download" onclick="descargarCupon()"><i class="fa-solid fa-download"></i> Descargar Cupón</a>
+      <a href="login.html" class="btn-secondary">Ir al Portal</a>
+    </div>
+  </div>
+
+  <script>
+    function generarCupon() {
+      const segmentos = [];
+      for (let i = 0; i < 3; i++) {
+        const bloque = Math.floor(1000 + Math.random() * 9000);
+        segmentos.push(bloque);
+      }
+      return segmentos.join('-');
+    }
+
+    const codigoGenerado = generarCupon();
+    document.getElementById("codigo-cupon").innerText = "CUPÓN: " + codigoGenerado;
+
+    function descargarCupon() {
+      const texto = `Banco Horizonte\n\nEstimado cliente,\n\nEste es su cupón digital:\n${codigoGenerado}\n\nGracias por confiar en nosotros.`;
+      const blob = new Blob([texto], { type: 'text/plain' });
+      const enlace = document.createElement('a');
+      enlace.href = URL.createObjectURL(blob);
+      enlace.download = "cupon-banco.txt";
+      enlace.click();
+    }
+  </script>
+
+</body>
+</html>

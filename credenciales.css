@@ -1,0 +1,124 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: #f0f4f8;
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+/* Contenedor principal */
+.container {
+  background-color: #ffffff;
+  max-width: 600px;
+  width: 100%;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Título principal */
+.container h1 {
+  font-size: 28px;
+  color: #28a745;
+  margin-bottom: 20px;
+}
+
+/* Subtítulo de bienvenida */
+.welcome {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+/* Mensaje de envío de credenciales */
+.info {
+  background-color: #e6f5ff;
+  color: #005fa3;
+  border-left: 5px solid #007bff;
+  padding: 15px 20px;
+  margin-bottom: 30px;
+  font-size: 16px;
+  border-radius: 6px;
+  text-align: left;
+}
+
+/* Detalles de cuenta */
+.details {
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+.details p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+/* Sección del cupón */
+.card-coupon {
+  background-color: #f7faff;
+  padding: 20px;
+  border: 1px dashed #007bff;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.card-coupon img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.code {
+  font-size: 18px;
+  font-weight: bold;
+  color: #007bff;
+}
+
+/* Botones de acción */
+.actions {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+.btn-download,
+.btn-secondary {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-download {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-download:hover {
+  background-color: #0056b3;
+}
+
+.btn-secondary {
+  background-color: #e9ecef;
+  color: #333;
+}
+
+.btn-secondary:hover {
+  background-color: #d6d8db;
+}

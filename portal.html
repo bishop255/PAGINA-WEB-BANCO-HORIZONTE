@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Panel de Usuario - Banco Horizonte</title>
+  <link rel="stylesheet" href="panel.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <div class="panel-container">
+
+    <!-- Logo del banco -->
+    <div class="logo-banco">
+      <img src="images/logo_banco.png" alt="Banco Horizonte" />
+    </div>
+
+    <h1><i class="fa-solid fa-house-user"></i> Bienvenido, Juan Pérez</h1>
+    <p class="mensaje">Tu cuenta ha sido activada correctamente. A continuación te mostramos tus productos bancarios:</p>
+
+    <section class="tarjetas">
+      <div class="tarjeta">
+        <img src="images/tarjeta-credito.png" alt="Tarjeta de Crédito">
+        <p><strong>Cupo Aprobado:</strong> $2.500.000 CLP</p>
+        <p><strong>Disponible:</strong> $2.500.000 CLP</p>
+      </div>
+
+      <div class="tarjeta">
+        <img src="images/tarjeta-debito.png" alt="Tarjeta de Débito">
+        <p><strong>Saldo Disponible:</strong> $0 CLP</p>
+      </div>
+    </section>
+
+    <section class="acciones">
+      <a href="#" class="btn"><i class="fa-solid fa-money-bill-transfer"></i> Transferir</a>
+      <a href="#" class="btn"><i class="fa-solid fa-download"></i> Descargar Comprobante</a>
+      <a href="login.html" class="btn btn-logout"><i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión</a>
+    </section>
+
+    <section class="movimientos">
+      <h2>Movimientos Recientes</h2>
+      <p class="sin-movimientos">Aún no tienes movimientos registrados.</p>
+    </section>
+
+  </div>
+
+</body>
+</html>
+

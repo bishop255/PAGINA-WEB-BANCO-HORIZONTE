@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Iniciar Sesión - Banco Horizonte</title>
+  <link rel="stylesheet" href="login.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <div class="login-container">
+    <h1><i class="fa-solid fa-user-lock"></i> Iniciar Sesión</h1>
+    <p class="subtitle">Accede a tu portal de cliente de Banco Horizonte</p>
+
+    <form onsubmit="iniciarSesion(event)">
+      <label for="rut">RUT o Correo electrónico:</label>
+      <input type="text" id="rut" name="rut" required placeholder="12345678-9 o tu@email.com">
+
+      <label for="clave">Clave:</label>
+      <input type="password" id="clave" name="clave" required placeholder="Ingresa tu clave">
+
+      <button type="submit" class="btn">
+        <i class="fa-solid fa-right-to-bracket"></i> Ingresar
+      </button>
+    </form>
+
+    <div class="links">
+      <a href="#">¿Olvidaste tu clave?</a>
+      <a href="index.html">Volver</a>
+    </div>
+  </div>
+
+  <script>
+    function iniciarSesion(event) {
+      event.preventDefault();
+      // Redirige al portal del cliente
+      window.location.href = "portal.html";
+    }
+  </script>
+
+</body>
+</html>
