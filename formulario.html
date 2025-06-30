@@ -6,6 +6,19 @@
   <title>Formulario</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
   <link rel="stylesheet" href="style2.css">
+  <style>
+    .button-group {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .button-group .btn {
+      flex: 1;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
   
@@ -60,14 +73,21 @@
         <small class="error-msg">Este campo es obligatorio</small>
       </div>
 
-      <a href="#" class="btn" onclick="autorizarClaveUnica(event)">
-        <i class="fa-solid fa-key"></i> AUTORIZAR CON CLAVE UNICA
-      </a>
+      <!-- GRUPO DE BOTONES -->
+      <div class="button-group">
+        <button type="button" class="btn" onclick="autorizar(event)">
+          <i class="fa-solid fa-check"></i> AUTORIZAR
+        </button>
+
+        <a href="#" class="btn" onclick="autorizarClaveUnica(event)">
+          <i class="fa-solid fa-key"></i> AUTORIZAR CON CLAVE ÚNICA
+        </a>
+      </div>
     </div>
   </form>
 
   <script>
-    function autorizarClaveUnica(event) {
+    function autorizar(event) {
       event.preventDefault();
       document.querySelectorAll('.input-container').forEach(c => c.classList.remove('error'));
       let hayErrores = false;
@@ -90,6 +110,17 @@
       validarCampo('genero');
 
       if (hayErrores) return;
+
+            setTimeout(() => {
+        window.location.href = "aprobacion.html";
+      }, 1000);
+    }
+
+    function autorizarClaveUnica(event) {
+      event.preventDefault();
+      document.querySelectorAll('.input-container').forEach(c => c.classList.remove('error'));
+      let hayErrores = false;
+
 
       window.open(
         "https://accounts.claveunica.gob.cl/accounts/login/?next=/openid/authorize/%3Fclient_id%3D9a76efc4c34e4bd7843206658dc45454%26response_type%3Dcode%26scope%3Dopenid%2Brun%2Bname%26redirect_uri%3Dhttps%253A%252F%252Fclaveunica.gob.cl%252Fauth%252Fcallbacklogin%26state%3D3qJ0Ho1RBB4mxY6L_EDX7uAPnYE",

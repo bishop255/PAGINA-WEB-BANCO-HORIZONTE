@@ -6,6 +6,39 @@
   <title>Panel de Usuario - Banco Horizonte</title>
   <link rel="stylesheet" href="panel.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .cuenta-transferencia {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .btn-ver-cuenta {
+      padding: 10px 20px;
+      background-color: #004aad;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .btn-ver-cuenta:hover {
+      background-color: #00307a;
+    }
+
+    .cuenta-info {
+      display: none;
+      margin-top: 15px;
+      background-color: #f4f6f9;
+      padding: 15px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      text-align: left;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
 </head>
 <body>
 
@@ -32,6 +65,17 @@
       </div>
     </section>
 
+    <!-- NUEVA SECCIÓN: Datos de transferencia -->
+    <section class="cuenta-transferencia">
+      <button class="btn-ver-cuenta" onclick="mostrarCuenta()">Ver datos de transferencia</button>
+      <div id="cuentaInfo" class="cuenta-info">
+        <p><strong>Nombre y Apellido:</strong> Juan Perez</p>
+        <p><strong>Número de Cuenta:</strong> 98765432100</p>
+        <p><strong>Tipo de Cuenta:</strong> Cuenta Corriente</p>
+        <p><strong>Banco:</strong> Banco Horizonte</p>
+      </div>
+    </section>
+
     <section class="acciones">
       <a href="#" class="btn"><i class="fa-solid fa-money-bill-transfer"></i> Transferir</a>
       <a href="#" class="btn"><i class="fa-solid fa-download"></i> Descargar Comprobante</a>
@@ -45,6 +89,12 @@
 
   </div>
 
+  <script>
+    function mostrarCuenta() {
+      const cuentaDiv = document.getElementById("cuentaInfo");
+      cuentaDiv.style.display = cuentaDiv.style.display === "none" ? "block" : "none";
+    }
+  </script>
+
 </body>
 </html>
-
